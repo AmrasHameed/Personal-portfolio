@@ -481,7 +481,7 @@
     
     function validateForm()
     {
-        if(!validateName() || !validateEmail() || !validateMessage())
+        if(!validateName() || !validateEmail() || !validateMessage() || !validateSubject())
         {
             submitError.style.display ='block';
             submitError.innerHTML = 'please fill the all field';
@@ -513,6 +513,11 @@
   <script>
     $("#submit-form").submit((e) => {
       e.preventDefault()
+      const response=validateForm()
+      if(response===false){
+        alert("Something Error...")
+        return
+      }
       $.ajax({
         url: "https://script.google.com/macros/s/AKfycbxKVYThElLH8DLfuCNpEOZEwEO7M4HxEUDmpuojBQ6XmOC3cXmQZU40yG1Jlkg2ZooOwQ/exec",
         data: $("#submit-form").serialize(),
