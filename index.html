@@ -514,8 +514,7 @@
     $("#submit-form").submit((e) => {
       e.preventDefault()
       const response=validateForm()
-      if(response===false){
-        alert("Something Error...")
+      if(response===false)
         return
       }
       $.ajax({
